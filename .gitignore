@@ -1,0 +1,6 @@
+node_modules/
+server/vendora.db*
+server/uploads/
+web/dist/
+*.log
+

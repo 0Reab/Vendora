@@ -1,0 +1,336 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Vendora API",
+    "version": "2.14.3",
+    "description": "Staging spec (generated nightly). 238 endpoints; partner-scoped endpoints hidden."
+  },
+  "servers": [
+    {
+      "url": "/api"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "Create account"
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Password login"
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "summary": "Exchange refresh token"
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "summary": "Send reset code (numeric IVR code)"
+      }
+    },
+    "/auth/reset-password": {
+      "post": {
+        "summary": "Reset with numeric code"
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "summary": "Current profile"
+      },
+      "patch": {
+        "summary": "Update profile"
+      }
+    },
+    "/auth/switch-org": {
+      "post": {
+        "summary": "Switch active org context"
+      }
+    },
+    "/auth/me/api-keys": {
+      "get": {
+        "summary": "List API keys"
+      },
+      "post": {
+        "summary": "Create API key"
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Global search (SQLite union)"
+      }
+    },
+    "/products": {
+      "get": {
+        "summary": "Browse catalog"
+      },
+      "post": {
+        "summary": "Create product (vendor)"
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "Product detail"
+      },
+      "put": {
+        "summary": "Update product"
+      },
+      "delete": {
+        "summary": "Deactivate product"
+      }
+    },
+    "/products/import/csv": {
+      "post": {
+        "summary": "CSV import (file or feed URL)"
+      }
+    },
+    "/products/import/xml": {
+      "post": {
+        "summary": "XML supplier feed import (Catalogic)"
+      }
+    },
+    "/cart": {
+      "get": {
+        "summary": "Cart"
+      }
+    },
+    "/cart/quote": {
+      "post": {
+        "summary": "Quote with coupon + shipping"
+      }
+    },
+    "/checkout": {
+      "post": {
+        "summary": "Create order"
+      }
+    },
+    "/orders": {
+      "get": {
+        "summary": "My orders"
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "summary": "Order detail"
+      },
+      "patch": {
+        "summary": "Update order (ops/support flow)"
+      }
+    },
+    "/orders/{id}/invoice": {
+      "get": {
+        "summary": "HTML invoice"
+      }
+    },
+    "/coupons/active": {
+      "get": {
+        "summary": "Live deal codes"
+      }
+    },
+    "/orgs": {
+      "get": {
+        "summary": "Org directory"
+      },
+      "post": {
+        "summary": "Create org"
+      }
+    },
+    "/orgs/join": {
+      "post": {
+        "summary": "Join by code"
+      }
+    },
+    "/orgs/invite": {
+      "post": {
+        "summary": "Invite member"
+      }
+    },
+    "/orgs/invites/accept": {
+      "post": {
+        "summary": "Accept invite token"
+      }
+    },
+    "/orgs/projects": {
+      "get": {
+        "summary": "Projects"
+      },
+      "post": {
+        "summary": "Create project"
+      }
+    },
+    "/tasks/{id}": {
+      "patch": {
+        "summary": "Update task"
+      }
+    },
+    "/tasks/{id}/comments": {
+      "get": {
+        "summary": "Comments"
+      },
+      "post": {
+        "summary": "Add comment (markdown-lite)"
+      }
+    },
+    "/orgs/links": {
+      "post": {
+        "summary": "Add link (server-side unfurl)"
+      }
+    },
+    "/orgs/webhooks": {
+      "get": {
+        "summary": "List webhooks"
+      },
+      "post": {
+        "summary": "Create webhook"
+      }
+    },
+    "/orgs/webhooks/{id}/test": {
+      "post": {
+        "summary": "Ping webhook from server"
+      }
+    },
+    "/attachments/download": {
+      "get": {
+        "summary": "Download by original name"
+      }
+    },
+    "/attachments/download/{id}": {
+      "get": {
+        "summary": "Download by id"
+      }
+    },
+    "/support/tickets": {
+      "get": {
+        "summary": "My tickets"
+      },
+      "post": {
+        "summary": "Open ticket"
+      }
+    },
+    "/support/tickets/{id}": {
+      "get": {
+        "summary": "Ticket thread"
+      }
+    },
+    "/support/queue": {
+      "get": {
+        "summary": "Agent queue"
+      }
+    },
+    "/vendor/me": {
+      "get": {
+        "summary": "Vendor profile"
+      }
+    },
+    "/vendor/templates": {
+      "get": {
+        "summary": "Email templates"
+      }
+    },
+    "/vendor/templates/{key}/preview": {
+      "post": {
+        "summary": "Render template preview"
+      }
+    },
+    "/vendor/stats": {
+      "get": {
+        "summary": "Sales stats (dynamic group/sort)"
+      }
+    },
+    "/vendor/payouts": {
+      "get": {
+        "summary": "Payout requests"
+      },
+      "post": {
+        "summary": "Request payout"
+      }
+    },
+    "/admin/users": {
+      "get": {
+        "summary": "Ops user search"
+      }
+    },
+    "/admin/orders": {
+      "get": {
+        "summary": "Ops order search"
+      }
+    },
+    "/admin/settings": {
+      "get": {
+        "summary": "Feature flags and snippets"
+      }
+    },
+    "/admin/metrics": {
+      "get": {
+        "summary": "Proxy internal metrics (target param)"
+      }
+    },
+    "/admin/reports/pdf": {
+      "post": {
+        "summary": "Generate report via internal renderer"
+      }
+    },
+    "/admin/backup": {
+      "get": {
+        "summary": "Nightly DB snapshot passthrough"
+      }
+    },
+    "/diagnostics/ping": {
+      "post": {
+        "summary": "Runbook ping"
+      }
+    },
+    "/misc/og-proxy": {
+      "get": {
+        "summary": "Share preview / click redirect"
+      }
+    },
+    "/newsletter/subscribe": {
+      "post": {
+        "summary": "Subscribe"
+      }
+    },
+    "/newsletter/unsubscribe": {
+      "get": {
+        "summary": "Unsubscribe (token in query)"
+      }
+    },
+    "/auth/mailbox": {
+      "get": {
+        "summary": "In-app e-mail preview (own messages, QA-96)"
+      }
+    },
+    "/auth/connect-login": {
+      "post": {
+        "summary": "Open a session from a Vendora Connect token (MARK-201)"
+      }
+    },
+    "/connect/authorize": {
+      "get": {
+        "summary": "Vendora Connect authorize (code flow, MARK-118)"
+      }
+    },
+    "/connect/token": {
+      "post": {
+        "summary": "Vendora Connect token exchange"
+      }
+    },
+    "/connect/userinfo": {
+      "get": {
+        "summary": "Connect profile (Bearer connect token)"
+      }
+    },
+    "/vendor/theme-import": {
+      "post": {
+        "summary": "Import brand theme pack zip (BRAND-14)"
+      }
+    },
+    "/vendor/theme": {
+      "get": {
+        "summary": "Brand theme status/files"
+      }
+    }
+  }
+}

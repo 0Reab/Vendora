@@ -1,0 +1,12 @@
+{
+  "name": "vendora-lab",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Vendora deliberately vulnerable marketplace+collab lab",
+  "scripts": {
+    "start": "cd server && npm start",
+    "seed": "cd server && npm run seed",
+    "build": "cd web && npm install && npm run build && cp -r dist/. ../server/public/",
+    "fresh": "cd server && rm -f vendora.db* && npm run seed"
+  }
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendora — sell together, buy smarter</title>
+    <style>
+      /* boot toast: partner dashboards deep-link with #toast= to show a
+         confirmation strip on landing (COM-410). Inline so it shows pre-hydration. */
+      #boot-toast{position:fixed;top:0;left:0;right:0;z-index:9999;display:none;
+        background:#12303f;color:#cfe9ff;padding:10px 18px;font:14px/1.4 system-ui}
+    </style>
+  </head>
+  <body>
+    <div id="boot-toast"></div>
+    <div id="root"></div>
+    <script>
+      (function () {
+        var m = /[#&]toast=([^&]+)/.exec(location.hash || '');
+        if (m) {
+          var t = document.getElementById('boot-toast');
+          t.style.display = 'block';
+          t.innerHTML = decodeURIComponent(m[1].replace(/\+/g, ' '));
+          setTimeout(function () { t.style.display = 'none'; }, 8000);
+        }
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
